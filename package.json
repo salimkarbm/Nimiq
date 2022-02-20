@@ -4,6 +4,7 @@
   "description": "a simple placeholder api",
   "main": "index.js",
   "scripts": {
+    "prettier":"prettier --config .prettierrc --ignore-path .gitignore  --write \"**/*.+(js|ts)\""
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/salimkarbm/image-processing-api/issues"
   },
-  "homepage": "https://github.com/salimkarbm/image-processing-api#readme"
+  "homepage": "https://github.com/salimkarbm/image-processing-api#readme",
+  "devDependencies": {
+    "prettier": "^2.5.1"
+  }
 }
