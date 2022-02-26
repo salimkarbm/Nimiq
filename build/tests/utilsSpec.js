@@ -12,12 +12,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const supertest_1 = __importDefault(require("supertest"));
-const index_1 = __importDefault(require("../index"));
-describe('Test image endpoint', () => {
-    it('it fetch image with the provided width and height', () => __awaiter(void 0, void 0, void 0, function* () {
-        const request = (0, supertest_1.default)(index_1.default);
-        const response = yield request.get('/api/v1/image');
-        expect(response.status).toEqual(200);
+const index_1 = __importDefault(require("../utilities/index"));
+describe('image', () => {
+    it('it expects resizedImage() to resize image', () => __awaiter(void 0, void 0, void 0, function* () {
+        yield index_1.default.resizeImage('fjord.jpeg', 300, 200);
     }));
 });

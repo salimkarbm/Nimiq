@@ -1,10 +1,13 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 
-const router = express.Router();
+import imageRouter from './apis/image';
 
-//fetch image with provide width and height
-router.get('/image', (req, res) => {
-    res.send({ status: 200, message: 'success' });
+const routes = express.Router();
+
+routes.get('/', (req: Request, res: Response) => {
+    res.send('<h1>Image Processing Api</h1>');
 });
 
-export default router;
+routes.use(imageRouter);
+
+export default routes;

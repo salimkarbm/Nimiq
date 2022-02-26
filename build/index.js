@@ -8,7 +8,8 @@ const express_1 = __importDefault(require("express"));
 const index_1 = __importDefault(require("./routes/index"));
 //initialised express
 const app = (0, express_1.default)();
-app.use('/api/v1/', index_1.default);
+//image route middleware
+app.use('/api/v1', index_1.default);
 //create port
 const PORT = 3000;
 //lisyen for server connection on port

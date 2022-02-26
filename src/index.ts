@@ -1,12 +1,13 @@
 import express from 'express';
 
 //import image routes
-import imageRoute from './routes/index';
+import routes from './routes/index';
 
 //initialised express
 const app = express();
 
-app.use('/api/v1/', imageRoute);
+//image route middleware
+app.use('/api/v1', routes);
 
 //create port
 const PORT = 3000;
