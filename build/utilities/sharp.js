@@ -13,20 +13,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const sharp_1 = __importDefault(require("sharp"));
-const path_1 = __importDefault(require("path"));
-//Get current working directory
-const appdir = process.cwd();
+const filepath_1 = __importDefault(require("./filepath"));
 //function to resize image
 const resizeImage = (imageName, width, height) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        //Get the path to the image file
-        const existingImgPath = path_1.default.normalize(path_1.default.join(appdir, `/assets/images/${imageName}`));
-        //get the path to where the new image will be stored
-        const generatedImgPath = path_1.default.normalize(path_1.default.join(appdir, `/assets/images/thumbnails/${imageName}_${width}_${height}.jpeg`));
-        //resize image and store image in new file path
+        const existingImgPath = `${filepath_1.default.existingImgPath}/${imageName}.jpeg`;
+        const generatedImgPath = `${filepath_1.default.generatedImgPath}/${imageName}_${width}_${height}.jpeg`;
+        //resize image and store image in new directory path
         yield (0, sharp_1.default)(existingImgPath)
             .resize(width, height)
-            .jpeg({ mozjpeg: true })
             .toFile(generatedImgPath);
     }
     catch (err) {

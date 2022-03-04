@@ -12,9 +12,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const index_1 = __importDefault(require("../utilities/index"));
+const sharp_1 = __importDefault(require("../utilities/sharp"));
 describe('image', () => {
     it('it expects resizedImage() to resize image', () => __awaiter(void 0, void 0, void 0, function* () {
-        yield index_1.default.resizeImage('fjord.jpeg', 300, 200);
+        yield expectAsync(sharp_1.default.resizeImage('palmtunnel', 300, 200)).toBeResolved();
+    }));
+    it('it return error when an image that does not exist is passed', () => __awaiter(void 0, void 0, void 0, function* () {
+        sharp_1.default
+            .resizeImage('image that does not exist', 300, 200)
+            .catch((err) => {
+            expect(err.Error).toBe(' Input file is missing');
+        });
     }));
 });

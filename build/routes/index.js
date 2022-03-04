@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const image_1 = __importDefault(require("./apis/image"));
 const routes = express_1.default.Router();
+//render front page
 routes.get('/', (req, res) => {
     res.send('<h1>Image Processing Api</h1>');
 });

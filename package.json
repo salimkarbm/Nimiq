@@ -2,11 +2,11 @@
     "name": "image-processing-api",
     "version": "1.0.0",
     "description": "a simple placeholder api",
-    "main": "index.js",
+    "main": "server.js",
     "scripts": {
         "build": "npx tsc",
         "jasmine": "jasmine",
-        "start": "nodemon ./src/index.ts",
+        "start": "nodemon ./src/server.ts",
         "lint": "eslint --ext .js,.ts .",
         "test": "npm run build && npm run jasmine",
         "prettier": "prettier --config .prettierrc --ignore-path .gitignore  './src/**/*.+(js|ts)' --write"
