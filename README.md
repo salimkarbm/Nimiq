@@ -36,13 +36,15 @@ to test you will need to write the following code :
 ### project End Points
 `/api/v1/`: home page endpoint
 
+* HTTP Method: Get
+
 `/api/v1/image?width=300&height=400&name=fjord`
 
 * HTTP Method: Get
 * Query Param: `width`, `height`, `filename`.
 
  `filename`: the specific image you are requesting.
- 
+
  `width and height`: dimension of the image in pixel
 
  ## Available images
