@@ -42,6 +42,7 @@ to test you will need to write the following code :
 * Query Param: `width`, `height`, `filename`.
 
  `filename`: the specific image you are requesting.
+ 
  `width and height`: dimension of the image in pixel
 
  ## Available images
