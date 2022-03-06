@@ -38,7 +38,7 @@ to test you will need to write the following code :
 
 * HTTP Method: Get
 
-`/api/v1/image?width=300&height=400&name=fjord`: image processing endpoint
+`/api/v1/image?filename=fjord&width=300&height=400`: image processing endpoint
 
 * HTTP Method: Get
 * Query Param: `width`, `height`, `filename`.
