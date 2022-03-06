@@ -25,7 +25,7 @@ const resizeImage = (imageName, width, height) => __awaiter(void 0, void 0, void
             .toFile(generatedImgPath);
     }
     catch (err) {
-        console.error(err);
+        throw new Error(`unable to process image ${err}`);
     }
 });
 exports.default = { resizeImage };

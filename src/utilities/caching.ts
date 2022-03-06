@@ -21,7 +21,7 @@ const cachedImage = async (
             return generatedImgPath;
         }
     } catch (err) {
-        //console.error(err);
+        throw new Error(`image does not exits, please check file path ${err}`);
     }
 };
 

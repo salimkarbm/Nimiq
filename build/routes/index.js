@@ -8,7 +8,7 @@ const image_1 = __importDefault(require("./apis/image"));
 const routes = express_1.default.Router();
 //render front page
 routes.get('/', (req, res) => {
-    res.send('<h1>Image Processing Api</h1>');
+    res.render('index', { title: 'Home' });
 });
 routes.use(image_1.default);
 exports.default = routes;

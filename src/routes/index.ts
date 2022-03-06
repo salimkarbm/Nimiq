@@ -6,7 +6,7 @@ const routes = express.Router();
 
 //render front page
 routes.get('/', (req: Request, res: Response) => {
-    res.send('<h1>Image Processing Api</h1>');
+    res.render('index', { title: 'Home' });
 });
 
 routes.use(imageRouter);

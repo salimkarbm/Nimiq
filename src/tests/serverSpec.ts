@@ -2,7 +2,7 @@ import supertest from 'supertest';
 
 import app from '../server';
 
-describe('Test image endpoint', () => {
+describe('Test image endpoint /api/v1/', () => {
     it('it expects server to be running and return a status code of 200', async (): Promise<void> => {
         const request = supertest(app);
         const response = await request.get('/api/v1/');
@@ -15,10 +15,10 @@ describe('Test image endpoint', () => {
         expect(response.body.status).toEqual(404);
         expect(response.body).toBeInstanceOf(Object);
     });
-    it('it expects to return status code 200 when url parameters are define', async (): Promise<void> => {
+    it('it expects to return status code 200 when url parameters are define correctly', async (): Promise<void> => {
         const request = supertest(app);
         const response = await request.get(
-            '/api/v1/image?width=200&height=300&name=fjord'
+            '/api/v1/image?filename=fjord&width=200&height=300'
         );
         expect(response.body.status).toEqual(200);
         expect(response.body.message).toEqual('success');
@@ -27,7 +27,7 @@ describe('Test image endpoint', () => {
     it('it return error when width or height is not specified', async (): Promise<void> => {
         const request = supertest(app);
         const response = await request.get(
-            '/api/v1/image?width=200&height=&name=fjord'
+            '/api/v1/image?filename=fjord&width=200&height='
         );
         expect(response.body.status).toEqual(404);
         expect(response.body).toBeInstanceOf(Object);
@@ -35,7 +35,7 @@ describe('Test image endpoint', () => {
     it('it return error when width or height parameters is not a number', async (): Promise<void> => {
         const request = supertest(app);
         const response = await request.get(
-            '/api/v1/image?width=image&height=300&name=fjord'
+            '/api/v1/image?filename=fjord&width=image&height=300'
         );
         expect(response.body.status).toEqual(404);
         expect(response.body).toBeInstanceOf(Object);

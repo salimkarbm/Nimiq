@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const supertest_1 = __importDefault(require("supertest"));
 const server_1 = __importDefault(require("../server"));
-describe('Test image endpoint', () => {
+describe('Test image endpoint /api/v1/', () => {
     it('it expects server to be running and return a status code of 200', () => __awaiter(void 0, void 0, void 0, function* () {
         const request = (0, supertest_1.default)(server_1.default);
         const response = yield request.get('/api/v1/');
@@ -27,22 +27,22 @@ describe('Test image endpoint', () => {
         expect(response.body.status).toEqual(404);
         expect(response.body).toBeInstanceOf(Object);
     }));
-    it('it expects to return status code 200 when url parameters are define', () => __awaiter(void 0, void 0, void 0, function* () {
+    it('it expects to return status code 200 when url parameters are define correctly', () => __awaiter(void 0, void 0, void 0, function* () {
         const request = (0, supertest_1.default)(server_1.default);
-        const response = yield request.get('/api/v1/image?width=200&height=300&name=fjord');
+        const response = yield request.get('/api/v1/image?filename=fjord&width=200&height=300');
         expect(response.body.status).toEqual(200);
         expect(response.body.message).toEqual('success');
         expect(response.body).toBeInstanceOf(Object);
     }));
     it('it return error when width or height is not specified', () => __awaiter(void 0, void 0, void 0, function* () {
         const request = (0, supertest_1.default)(server_1.default);
-        const response = yield request.get('/api/v1/image?width=200&height=&name=fjord');
+        const response = yield request.get('/api/v1/image?filename=fjord&width=200&height=');
         expect(response.body.status).toEqual(404);
         expect(response.body).toBeInstanceOf(Object);
     }));
     it('it return error when width or height parameters is not a number', () => __awaiter(void 0, void 0, void 0, function* () {
         const request = (0, supertest_1.default)(server_1.default);
-        const response = yield request.get('/api/v1/image?width=image&height=300&name=fjord');
+        const response = yield request.get('/api/v1/image?filename=fjord&width=image&height=300');
         expect(response.body.status).toEqual(404);
         expect(response.body).toBeInstanceOf(Object);
     }));

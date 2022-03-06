@@ -12,7 +12,7 @@ const imageRoute = express.Router();
 imageRoute.get('/image', async (req: Request, res: Response) => {
     try {
         //Get values from the request object
-        const imageName = req.query.name as string;
+        const imageName = req.query.filename as string;
         const width = parseInt(req.query.width as string, 10);
         const height = parseInt(req.query.height as string, 10);
         //check for available images
@@ -47,7 +47,7 @@ imageRoute.get('/image', async (req: Request, res: Response) => {
         //send response
         return res.send({ status: 200, message: 'success', imagePath });
     } catch (err) {
-        console.log(err);
+        res.send(`oops,something went wrong! ${err}`);
     }
 });
 

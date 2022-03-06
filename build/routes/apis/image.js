@@ -22,7 +22,7 @@ const imageRoute = express_1.default.Router();
 imageRoute.get('/image', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         //Get values from the request object
-        const imageName = req.query.name;
+        const imageName = req.query.filename;
         const width = parseInt(req.query.width, 10);
         const height = parseInt(req.query.height, 10);
         //check for available images
@@ -54,7 +54,7 @@ imageRoute.get('/image', (req, res) => __awaiter(void 0, void 0, void 0, functio
         return res.send({ status: 200, message: 'success', imagePath });
     }
     catch (err) {
-        console.log(err);
+        res.send(`oops,something went wrong! ${err}`);
     }
 }));
 exports.default = imageRoute;

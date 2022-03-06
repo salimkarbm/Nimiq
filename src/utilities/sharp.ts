@@ -16,7 +16,7 @@ const resizeImage = async (
             .resize(width, height)
             .toFile(generatedImgPath);
     } catch (err) {
-        console.error(err);
+        throw new Error(`unable to process image ${err}`);
     }
 };
 

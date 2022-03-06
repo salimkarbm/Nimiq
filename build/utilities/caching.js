@@ -30,7 +30,7 @@ const cachedImage = (imageName, width, height) => __awaiter(void 0, void 0, void
         }
     }
     catch (err) {
-        //console.error(err);
+        throw new Error(`image does not exits, please check file path ${err}`);
     }
 });
 exports.default = { cachedImage };
