@@ -1,10 +1,10 @@
-## FENG
+## NIMIQ
 
-Feng is an image processing api that resizes jpeg image to a thumbnail sized image.
+Nimiq is an image processing api that resizes jpeg image to a thumbnail sized image.
 
 ## Project Description
 
- Feng is an API that can be use in two diffrent ways, a simple placeholder API that allow you to place images into your frontend wtih the size set via URL parameters. The second use case is as a library to server properly scaled versions of your images to the frontend to reduce page load size.
+ Nimiq is an API that can be use in two diffrent ways, a simple placeholder API that allow you to place images into your frontend wtih the size set via URL parameters. The second use case is as a library to server properly scaled versions of your images to the frontend to reduce page load size.
 
 ## Project tools and frameworks
 ```
